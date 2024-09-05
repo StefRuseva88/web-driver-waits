@@ -14,7 +14,10 @@ This repository provides detailed information and examples on how to handle wait
 - [Best Practices](#best-practices)
 - [Examples](#examples)
 - [Conclusion](#conclusion)
-
+- [Contributing](#Contributing)
+- [License](#License)
+- [Contact](#Contact)
+  
 ## Introduction
 
 In Selenium WebDriver, waits are crucial for managing the timing issues that arise during test automation. Properly handling waits ensures that your tests run reliably and reduce the likelihood of errors related to synchronization.
@@ -102,3 +105,15 @@ IWebElement element = fluentWait.Until(driver => driver.FindElement(By.Id("dynam
 ```
 ## Conclusion
 Using waits effectively is crucial for stable and reliable Selenium tests. By understanding the different types of waits and applying them appropriately, you can avoid common pitfalls related to timing issues and improve the overall quality of your test automation.
+
+## Contributing
+Contributions are welcome! If you have any improvements or bug fixes, feel free to open a pull request.
+
+## License
+This project is licensed under the [MIT License](LICENSE). See the [LICENSE](LICENSE) file for details.
+
+## Contact
+For any questions or suggestions, please reach out to the course instructor or open an issue in the repository.
+
+---
+### Happy Testing! 🚀
