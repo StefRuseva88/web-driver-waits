@@ -1,4 +1,6 @@
 # Selenium Waits Guide
+### This is a test project for Front-End Test Automation July 2024 Course @ SoftUni
+---
 
 This repository provides detailed information and examples on how to handle waits in Selenium WebDriver, including the consequences of not using waits and the various types of waits you can use.
 
