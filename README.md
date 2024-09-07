@@ -1,4 +1,4 @@
-# Selenium Waits Guide
+# Selenium Waits and Web Interactions
 [![C#](https://img.shields.io/badge/Made%20with-C%23-239120.svg)](https://learn.microsoft.com/en-us/dotnet/csharp/)
 [![Google Chrome](https://img.shields.io/badge/tested%20on-Google%20Chrome-4285F4.svg)](https://www.google.com/chrome/)
 [![NUnit](https://img.shields.io/badge/tested%20with-NUnit-22B2B0.svg)](https://nunit.org/)
@@ -17,6 +17,12 @@ This repository provides detailed information and examples on how to handle wait
   - [Implicit Wait](#implicit-wait)
   - [Explicit Wait](#explicit-wait)
   - [Fluent Wait](#fluent-wait)
+- [Working with Alerts](#working-with-alerts)
+  - [Handling Alerts](#handling-alerts)
+  - [Types of Alerts](#types-of-alerts)
+- [Working with iFrames](#working-with-iframes)
+  - [Understanding iFrames](#understanding-iframes)
+  - [Handling iFrames](#handling-iframes) 
 - [Best Practices](#best-practices)
 - [Examples](#examples)
 - [Conclusion](#conclusion)
@@ -82,7 +88,52 @@ IWebElement element = fluentWait.Until(driver => driver.FindElement(By.Id("eleme
 ```
 - **Pros:** Highly customizable, suitable for complex conditions and scenarios where you need to adjust polling frequency or handle specific exceptions.
 - **Cons:** More complex to set up compared to implicit and explicit waits.
+  
+## Working with Alerts
+Alerts are modal windows that interrupt the flow of the page, requiring user interaction to proceed. They come in three types: informational, confirmation, and prompt alerts.
 
+### Handling Alerts
+1. **IAlert Interface:** Selenium provides the `IAlert` interface for interacting with alerts.
+2. **Switch to Alert:** Use `driver.SwitchTo().Alert()` to switch context to the alert.
+3. Alert Methods:
+- `Accept()`: Confirms the alert.
+- `Dismiss()`: Cancels the alert.
+- `SendKeys()`: Enters text in prompt alerts.
+- `GetText()`: Retrieves the text of the alert.
+
+### Types of Alerts
+
+- Informational Alerts: Require users to acknowledge by clicking OK.
+ ```csharp
+  IAlert alert = driver.SwitchTo().Alert();
+alert.Accept();
+ ```
+- Confirmation Alerts: Present users with OK or Cancel options.
+```csharp
+  IAlert alert = driver.SwitchTo().Alert();
+alert.Dismiss();  // To cancel the alert
+ ```
+- Prompt Alerts: Require text input before accepting or dismissing.
+ ```csharp
+ IAlert alert = driver.SwitchTo().Alert();
+alert.SendKeys("Test input");
+alert.Accept();
+ ```
+## Working with iFrames
+iFrames are HTML elements that allow embedding external content into a webpage. They create isolated environments, and Selenium requires context-switching to interact with elements inside them.
+
+### Understanding iFrames
+- iFrames in HTML: iFrames embed external content, such as media or other web pages, within a parent page.
+- Context Switching: Selenium uses the `SwitchTo().Frame()` method to switch context to the iFrame before interacting with its elements.
+
+### Handling iFrames
+There are three ways to interact with iFrames in Selenium:
+- By Index:
+
+- By ID or Name:
+
+- By WebElement:
+  
 ## Best Practices
 1. Prefer Explicit Waits for Specific Conditions: Use explicit waits to handle specific cases where an element needs to meet a particular condition before interacting with it.
 2. Use Implicit Waits for General Waiting: Set an implicit wait to cover general waiting scenarios, but be cautious about potential conflicts with explicit waits.
