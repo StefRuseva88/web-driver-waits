@@ -129,11 +129,22 @@ iFrames are HTML elements that allow embedding external content into a webpage. 
 ### Handling iFrames
 There are three ways to interact with iFrames in Selenium:
 - By Index:
-
+```csharp
+driver.SwitchTo().Frame(0);  // Switches to the first iFrame
+```
 - By ID or Name:
-
+```csharp
+driver.SwitchTo().Frame("frameId");  // Switches to iFrame by ID
+```
 - By WebElement:
-  
+```csharp
+IWebElement iframeElement = driver.FindElement(By.Id("frameId"));
+driver.SwitchTo().Frame(iframeElement);
+```
+- After interacting with the elements inside the iFrame, you can switch back to the parent frame:
+```csharp
+driver.SwitchTo().DefaultContent();  // Switch back to the main page
+```
 ## Best Practices
 1. Prefer Explicit Waits for Specific Conditions: Use explicit waits to handle specific cases where an element needs to meet a particular condition before interacting with it.
 2. Use Implicit Waits for General Waiting: Set an implicit wait to cover general waiting scenarios, but be cautious about potential conflicts with explicit waits.
