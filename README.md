@@ -174,9 +174,6 @@ IWebElement element = fluentWait.Until(driver => driver.FindElement(By.Id("dynam
 ## Conclusion
 Using waits effectively is crucial for stable and reliable Selenium tests. By understanding the different types of waits and applying them appropriately, you can avoid common pitfalls related to timing issues and improve the overall quality of your test automation.
 
-## Contributing
-Contributions are welcome! If you have any improvements or bug fixes, feel free to open a pull request.
-
 ## License
 This project is licensed under the [MIT License](LICENSE). See the [LICENSE](LICENSE) file for details.
 
